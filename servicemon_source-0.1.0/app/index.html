@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Infinity Service Monitor</title>
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <!-- build:css(.) styles/vendor.min.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <link href="/bower_components/angular-datatables/dist/css/angular-datatables.min.css" rel="stylesheet">
+    <link href="/bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css"
+          rel="stylesheet">
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css(app) styles/bundle.min.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="styles/app.css">
+    <!-- endbower -->
+    <!-- endbuild -->
+    <style>
+        .ng-invalid.ng-dirty{
+        .has-error .form-control
+
+        }
+        label.has-error.control-label {
+        .has-error .control-label;
+        }
+    </style>
+</head>
+<div ng-app="monitoring">
+    <!-- <div ng-include src="'commons/navbar.html'"></div> -->
+
+    <div ui-view></div>
+
+    <!-- <div ng-include src="'commons/footer.html'"></div> -->
+</div>
+<!-- build:js(.) scripts/lib.min.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/lodash/lodash.js"></script>
+<script src="/bower_components/restangular/dist/restangular.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/bower_components/ngstorage/ngStorage.min.js"></script>
+<script src="/bower_components/moment/moment.js"></script>
+<script src="/bower_components/angular-moment/angular-moment.min.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="/bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-cc-autorefresh/js/cc-autorefresh-tpls.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+
+<!-- build:js(app) scripts/bundle.min.js -->
+<!-- bower:js -->
+<script src="global/base-app.js"></script>
+<script src="peer/peer-app.js"></script>
+<script src="peer/peer-service.js"></script>
+<script src="peer/peer-controller.js"></script>
+<script src="global/global-app.js"></script>
+
+<!-- endbower -->
+<!-- endbuild -->
+
+</html>
