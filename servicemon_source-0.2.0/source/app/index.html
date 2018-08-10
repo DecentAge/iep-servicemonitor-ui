@@ -8,8 +8,10 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
     <meta http-equiv="Pragma" content="no-cache">
 
+    <link rel="shortcut icon" href="./images/favicon.ico">
     <!-- build:css(.) styles/vendor.min.css -->
     <!-- bower:css -->
+
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
@@ -19,20 +21,14 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+
     <!-- build:css(app) styles/bundle.min.css -->
     <!-- bower:css -->
+
     <link rel="stylesheet" href="styles/app.css">
     <!-- endbower -->
     <!-- endbuild -->
-    <style>
-        .ng-invalid.ng-dirty{
-        .has-error .form-control
-
-        }
-        label.has-error.control-label {
-        .has-error .control-label;
-        }
-    </style>
 </head>
 <div ng-app="monitoring">
     <!-- <div ng-include src="'commons/navbar.html'"></div> -->
@@ -72,5 +68,9 @@
 
 <!-- endbower -->
 <!-- endbuild -->
-
+<script>
+    if (window.location.protocol == "https:") {
+        window.location.href = window.location.href.replace("https", "http");
+    }
+</script>
 </html>

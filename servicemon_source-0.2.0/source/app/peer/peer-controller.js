@@ -34,7 +34,7 @@ angular.module('peer').controller('PeerStatusCtrl',
                     PeerService.getPeerStatus(value.url,website).then(function (success) {
                         //console.log(success);
                         $scope.IP_STATUS[value.url] = $scope.IP_STATUS[value.url] || {};
-                        $scope.IP_STATUS[value.url].status = '<span class="label label-success">ONLINE</span>';
+                        $scope.IP_STATUS[value.url].status = '<span class="icon-check2"></span>';
                         $scope.IP_STATUS[value.url].timestamp = new Date().toString();
                     }, function (error) {
                         //console.log(error);
@@ -51,7 +51,7 @@ angular.module('peer').controller('PeerStatusCtrl',
                 $scope.IP_STATUS[url] = {};
                 return PeerService.getPeerStatus(url,website).then(function (success) {
                     $scope.IP_STATUS[url] = $scope.IP_STATUS[url] || {};
-                    $scope.IP_STATUS[url].status = '<span class="label label-success">ONLINE</span>';
+                    $scope.IP_STATUS[url].status = '<span class="icon-check2"></span>';
                     $scope.IP_STATUS[url].timestamp = new Date().toString();
                 }, function (error) {
                     $scope.IP_STATUS[url] = $scope.IP_STATUS[url] || {};

@@ -18,6 +18,7 @@ var config = {
     scripts: 'app/**/*.js',
     fonts: ['bower_components/font-awesome/fonts/fontawesome-webfont.*',
         'bower_components/bootstrap/fonts/glyphicons-halflings-regular.*',
+        'app/fonts/icomoon.*',
     ],
 
 };
