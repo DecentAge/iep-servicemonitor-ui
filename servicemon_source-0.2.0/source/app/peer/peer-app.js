@@ -27,16 +27,17 @@ angular.module('peer')
     }]);
 
 angular.module('peer').constant('peerEndpoints', [
-    {'label': 'Peer #1', 'ip': '185.35.137.7'  , 'url': 'http://185.35.137.7:8888/api/nodes'},
-    {'label': 'Peer #2', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217:8888/api/nodes'},
-    {'label': 'Peer #3', 'ip': '185.35.139.101', 'url': 'http://185.35.139.101:8888/api/nodes'},
-    {'label': 'Peer #4', 'ip': '185.35.139.102', 'url': 'http://185.35.139.102:8888/api/nodes'},
-    {'label': 'Peer #5', 'ip': '185.35.139.103', 'url': 'http://185.35.139.103:8888/api/nodes'},
-    {'label': 'Peer #6', 'ip': '185.35.139.104', 'url': 'http://185.35.139.104:8888/api/nodes'},
-    {'label': 'Peer #7', 'ip': '185.35.139.105', 'url': 'http://185.35.139.105:8888/api/nodes'},
-    {'label': 'Peer #8', 'ip': '185.61.149.40' , 'url': 'http://46.244.20.41:8888/api/nodes'},
-    {'label': 'Peer #9', 'ip': '185.35.138.136', 'url': 'http://208.95.1.177:8888/api/nodes'},
-    {'label': 'Peer #10', 'ip': '185.35.138.136', 'url': 'http://199.127.137.169:8888/api/nodes'}
+    {'label': 'Peer #1', 'ip': '35.204.224.241', 'url': 'http://35.204.224.241:8888/api/nodes'},
+    // {'label': 'Peer #1', 'ip': '185.35.137.7'  , 'url': 'http://185.35.137.7:8888/api/nodes'},
+    // {'label': 'Peer #2', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217:8888/api/nodes'},
+    // {'label': 'Peer #3', 'ip': '185.35.139.101', 'url': 'http://185.35.139.101:8888/api/nodes'},
+    // {'label': 'Peer #4', 'ip': '185.35.139.102', 'url': 'http://185.35.139.102:8888/api/nodes'},
+    // {'label': 'Peer #5', 'ip': '185.35.139.103', 'url': 'http://185.35.139.103:8888/api/nodes'},
+    // {'label': 'Peer #6', 'ip': '185.35.139.104', 'url': 'http://185.35.139.104:8888/api/nodes'},
+    // {'label': 'Peer #7', 'ip': '185.35.139.105', 'url': 'http://185.35.139.105:8888/api/nodes'},
+    // {'label': 'Peer #8', 'ip': '185.61.149.40' , 'url': 'http://46.244.20.41:8888/api/nodes'},
+    // {'label': 'Peer #9', 'ip': '208.95.1.177', 'url': 'http://208.95.1.177:8888/api/nodes'},
+    // {'label': 'Peer #10', 'ip': '199.127.137.169', 'url': 'http://199.127.137.169:8888/api/nodes'}
 ]);
 
 angular.module('peer').constant('macapEndpoints', [
@@ -44,10 +45,13 @@ angular.module('peer').constant('macapEndpoints', [
 ]);
 
 angular.module('peer').constant('websiteEndpoints', [
-    {'label': 'Peerexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/peer/images/logo_nav.png'},
-    {'label': 'Blockexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/block/images/logo_nav.png'},
-    {'label': 'Online Wallet #1', 'ip': '46.244.20.41', 'url': 'http://46.244.20.41/wallet/images/logo.png'},
-    {'label': 'Online Wallet #1', 'ip': '185.35.137.7', 'url': 'http://185.35.137.7/wallet/images/logo.png'},
+    // {'label': 'Peerexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/peer/images/logo_nav.png'},
+    {'label': 'Peerexplorer', 'ip': '35.204.224.241', 'url': 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
+    // {'label': 'Blockexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/block/images/logo_nav.png'},
+    {'label': 'Blockexplorer', 'ip': '35.204.224.241', 'url': 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
+    // {'label': 'Online Wallet #1', 'ip': '46.244.20.41', 'url': 'http://46.244.20.41/wallet/images/logo.png'},
+    {'label': 'Online Wallet #1', 'ip': '35.242.201.209', 'url': 'http://35.242.201.209/assets/images/logo.png'},
+    // {'label': 'Online Wallet #1', 'ip': '185.35.137.7', 'url': 'http://185.35.137.7/wallet/images/logo.png'},
     {'label': 'Online Wallet #1', 'ip': '208.95.1.177', 'url': 'http://208.95.1.177/wallet/images/logo.png'}
 ]);
 
