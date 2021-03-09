@@ -54,6 +54,7 @@ gulp.task('watch:html', function () {
 
 gulp.task('browser-sync', function () {
     plugins.browserSync({
+    	open: false,
         server: {
             baseDir: config.app,
             routes: {
