@@ -1,5 +1,5 @@
 {
-  "name": "Infinity Service Monitor",
+  "name": "iep-servicemonitor-ui",
   "description": "Service Monitoring",
   "main": "app.js",
   "authors": [
