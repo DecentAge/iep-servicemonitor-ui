@@ -1,3 +1,3 @@
 #!/bin/bash
-docker build -t iep-servicemonitor-ui .
+docker build -t decentage/iep-servicemonitor-ui:latest .
 
