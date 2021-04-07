@@ -65,7 +65,7 @@ gulp.task('browser-sync', function () {
         port: config.serverPort,
         browser: config.browser,
         files:[config.app+'/**/*'],
-        startPath: '/servicemonitor/',
+        startPath: '/servicemonitor/#!/monitor',
         middleware: function(req, res, next) {
             console.log("Req:", req.url);
             next();
