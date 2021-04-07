@@ -1,0 +1,9 @@
+node_modules
+.settings
+.project
+.vscode
+build-docker.sh
+git
+bower_components
+package-lock.json
+dist
