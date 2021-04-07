@@ -59,12 +59,17 @@ gulp.task('browser-sync', function () {
             baseDir: config.app,
             routes: {
                 '/bower_components': 'bower_components',
-                '/app':'app',
-            }
+                '/app':'app'
+            },
         },
         port: config.serverPort,
         browser: config.browser,
-        files:[config.app+'/**/*']
+        files:[config.app+'/**/*'],
+        startPath: '/servicemonitor/',
+        middleware: function(req, res, next) {
+            console.log("Req:", req.url);
+            next();
+        }
     });
 });
 
