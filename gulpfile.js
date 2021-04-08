@@ -62,14 +62,10 @@ gulp.task('browser-sync', function () {
                 '/app':'app'
             },
         },
-        port: config.serverPort,
+        port: process.env.PORT,
         browser: config.browser,
         files:[config.app+'/**/*'],
-        startPath: '/servicemonitor/#!/monitor',
-        middleware: function(req, res, next) {
-            console.log("Req:", req.url);
-            next();
-        }
+        startPath: process.env.PUBLIC_PATH+'/#!/monitor'
     });
 });
 
