@@ -4,8 +4,11 @@
 	"description": "Service Monitoring",
 	"main": "app.js",
 	"scripts": {
-		"build": "bower install --allow-root && gulp build",
-		"start": "gulp server",
+	    "prestart": "npm install",
+	    "gulp": "gulp",
+	    "bower": "bower",
+		"build": "npm run bower install && npm run gulp build",
+		"start": "npm run gulp server",
 		"test": "grunt test"
 	},
 	"author": "Infinity Community Dev Team",
