@@ -58,13 +58,11 @@ gulp.task('browser-sync', function () {
         server: {
             baseDir: config.app,
             routes: {
-                '/bower_components': 'bower_components',
-                '/app':'app'
+                '/bower_components': 'bower_components'
             },
         },
         port: process.env.PORT,
         browser: config.browser,
-        files:[config.app+'/**/*'],
         startPath: process.env.PUBLIC_PATH+'/#!/monitor'
     });
 });
@@ -80,9 +78,9 @@ gulp.task('server:dist', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch([config.styles], gulp.series('watch:styles'));
-    gulp.watch([config.scripts], gulp.series('watch:scripts'));
-    gulp.watch([config.html], gulp.series('watch:html'));
+    gulp.watch(config.styles, gulp.series('watch:styles'));
+    gulp.watch(config.scripts, gulp.series('watch:scripts'));
+    gulp.watch(config.html, gulp.series('watch:html'));
 });
 
 gulp.task('server', gulp.parallel('watch:scripts', 'watch:styles', 'watch:html', 'browser-sync', 'watch'));
