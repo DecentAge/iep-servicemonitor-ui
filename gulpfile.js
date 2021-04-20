@@ -1,3 +1,5 @@
+const { execSync } = require('child_process');
+
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')({
         pattern: '*',
@@ -53,6 +55,8 @@ gulp.task('watch:html', function () {
 });
 
 gulp.task('browser-sync', function () {
+	execSync("envsub app/env.config.js.template app/env.config.js");
+	
     plugins.browserSync({
     	open: false,
         server: {
@@ -122,4 +126,10 @@ gulp.task('copy:fonts', function() {
         .pipe(gulp.dest(config.dist + '/fonts'));
 });
 
-gulp.task('build', gulp.series('clean:dist', gulp.series('copy:html','copy:fonts','copy:images', 'index:build')));
+gulp.task('copy:config', function() {	
+    return gulp.src(config.app + '/env.config.js')
+
+        .pipe(gulp.dest(config.dist));
+});
+
+gulp.task('build', gulp.series('clean:dist', gulp.series('copy:config','copy:html','copy:fonts','copy:images', 'index:build')));

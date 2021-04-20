@@ -14,10 +14,11 @@
  *                                                                            *
  ******************************************************************************/
 
+
 angular.module('baseClient', ['restangular', 'ui.router', 'ui.bootstrap','datatables', 'datatables.bootstrap','cc.autorefresh']);
 
 angular.module('baseClient').constant('baseConfig', {
-    'AUTO_PAGE_REFRESH_INTERVAL':'300000',
+    'AUTO_PAGE_REFRESH_INTERVAL': window.getEnvConfig('AUTO_PAGE_REFRESH_INTERVAL') || '300000',
 });
 
 angular.module('baseClient').filter('isOnline', ['$sce', function ($sce) {
