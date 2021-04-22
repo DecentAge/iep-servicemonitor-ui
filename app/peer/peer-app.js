@@ -27,6 +27,9 @@ angular.module('peer')
     }]);
 
 var getHostByURL = function(url) {
+	if (!url || url === "") {
+		return "";
+	}
 	return new URL(url).host;
 }
 
