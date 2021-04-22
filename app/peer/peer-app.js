@@ -26,8 +26,12 @@ angular.module('peer')
         });
     }]);
 
+var getHostByURL = function(url) {
+	return new URL(url).host;
+}
+
 angular.module('peer').constant('peerEndpoints', [
-    {'label': 'Peer #1', 'ip': window.getEnvConfig("PEER_ENDPOINTS_1") || '35.204.224.241', 'url': window.getEnvConfig("PEER_ENDPOINTS_1") + '/api/nodes' || 'http://35.204.224.241:8888/api/nodes'},
+    {'label': 'Peer #1', 'ip': getHostByURL(window.getEnvConfig("PEER_ENDPOINTS_1")) || '35.204.224.241', 'url': window.getEnvConfig("PEER_ENDPOINTS_1") || 'http://35.204.224.241:8888/api/nodes'},
     // {'label': 'Peer #1', 'ip': '185.35.137.7'  , 'url': 'http://185.35.137.7:8888/api/nodes'},
     // {'label': 'Peer #2', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217:8888/api/nodes'},
     // {'label': 'Peer #3', 'ip': '185.35.139.101', 'url': 'http://185.35.139.101:8888/api/nodes'},
@@ -41,29 +45,29 @@ angular.module('peer').constant('peerEndpoints', [
 ]);
 
 angular.module('peer').constant('macapEndpoints', [
-    {'label': 'MaCap', 'ip': window.getEnvConfig("MACAP_ENDPOINT") || '185.103.75.217', 'url': window.getEnvConfig("MACAP_ENDPOINT") + '/api/v1/get' || 'http://185.103.75.217:8892/api/v1/get'}
+    {'label': 'MaCap', 'ip': getHostByURL(window.getEnvConfig("MACAP_ENDPOINT")) || '185.103.75.217', 'url': window.getEnvConfig("MACAP_ENDPOINT") || 'http://185.103.75.217:8892/api/v1/get'}
 ]);
 
 angular.module('peer').constant('websiteEndpoints', [
     // {'label': 'Peerexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/peer/images/logo_nav.png'},
-    {'label': 'Peerexplorer', 'ip': window.getEnvConfig("WEBSITE_ENDPOINTS_PEER") || '35.204.224.241', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_PEER") + '/peerexplorer/images/logo_nav.png' || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
+    {'label': 'Peerexplorer', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_PEER")) || '35.204.224.241', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_PEER") || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
     // {'label': 'Blockexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/block/images/logo_nav.png'},
-    {'label': 'Blockexplorer', 'ip': window.getEnvConfig("WEBSITE_ENDPOINTS_BLOCK") || '35.204.224.241', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_BLOCK") + '/peerexplorer/images/logo_nav.png' || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
+    {'label': 'Blockexplorer', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_BLOCK")) || '35.204.224.241', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_BLOCK") || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
     // {'label': 'Online Wallet #1', 'ip': '46.244.20.41', 'url': 'http://46.244.20.41/wallet/images/logo.png'},
-    {'label': 'Online Wallet #1', 'ip': window.getEnvConfig("WEBSITE_ENDPOINTS_WALLET") || '35.242.201.209', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_WALLET") + '/assets/images/logo.png' || 'http://35.242.201.209/assets/images/logo.png'},
+    {'label': 'Online Wallet #1', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_WALLET")) || '35.242.201.209', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_WALLET") || 'http://35.242.201.209/assets/images/logo.png'},
     // {'label': 'Online Wallet #1', 'ip': '185.35.137.7', 'url': 'http://185.35.137.7/wallet/images/logo.png'},
 //    {'label': 'Online Wallet #1', 'ip': '208.95.1.177', 'url': 'http://208.95.1.177/wallet/images/logo.png'}
 ]);
 
 angular.module('peer').constant('testnetEndpoints', [
-    {'label': 'Online Wallet', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") + '/wallet/images/logo.png' || 'http://185.35.138.140/wallet/images/logo.png'},
-    {'label': 'Peerexplorer', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_PEER") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_PEER") + '/peer/images/logo_nav.png' || 'http://185.35.138.140/images/iep-logo.png'},
-    {'label': 'Blockexplorer', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_BLOCK") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_BLOCK") + '/block/images/logo_nav.png' || 'http://185.35.138.140/block/images/logo_nav.png'}
+    {'label': 'Online Wallet', 'ip': getHostByURL(window.getEnvConfig("TESTNET_ENDPOINTS_WALLET")) || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") || 'http://185.35.138.140/wallet/images/logo.png'},
+    {'label': 'Peerexplorer', 'ip': getHostByURL(window.getEnvConfig("TESTNET_ENDPOINTS_PEER")) || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_PEER") || 'http://185.35.138.140/images/iep-logo.png'},
+    {'label': 'Blockexplorer', 'ip': getHostByURL(window.getEnvConfig("TESTNET_ENDPOINTS_BLOCK")) || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_BLOCK") || 'http://185.35.138.140/block/images/logo_nav.png'}
 ]);
 
 angular.module('peer').constant('apiEndpoints', [
-  {'label': 'API Node', 'ip': window.getEnvConfig("API_ENDPOINTS_NODE") || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_NODE") + '/docs/images/favicon-16x16.png' || 'http://199.127.137.169:9005/docs/images/favicon-16x16.png'},
-  {'label': 'API Backends', 'ip': window.getEnvConfig("API_ENDPOINTS_BACKEND") || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_BACKEND") + '/docs/images/favicon-16x16.png' || 'http://199.127.137.169:9006/docs/images/favicon-16x16.png'}
+  {'label': 'API Node', 'ip': getHostByURL(window.getEnvConfig("API_ENDPOINTS_NODE")) || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_NODE") || 'http://199.127.137.169:9005/docs/images/favicon-16x16.png'},
+  {'label': 'API Backends', 'ip': getHostByURL(window.getEnvConfig("API_ENDPOINTS_BACKEND")) || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_BACKEND") || 'http://199.127.137.169:9006/docs/images/favicon-16x16.png'}
 ]);
 
 angular.module('peer').constant('peerConfig', {
