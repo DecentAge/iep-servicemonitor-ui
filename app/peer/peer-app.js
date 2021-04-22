@@ -57,8 +57,8 @@ angular.module('peer').constant('websiteEndpoints', [
 
 angular.module('peer').constant('testnetEndpoints', [
     {'label': 'Online Wallet', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") + '/wallet/images/logo.png' || 'http://185.35.138.140/wallet/images/logo.png'},
-    {'label': 'Peerexplorer', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_PEER") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") + '/peer/images/logo_nav.png' || 'http://185.35.138.140/peer/images/logo_nav.png'},
-    {'label': 'Blockexplorer', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_BLOCK") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") + '/block/images/logo_nav.png' || 'http://185.35.138.140/block/images/logo_nav.png'}
+    {'label': 'Peerexplorer', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_PEER") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_PEER") + '/peer/images/logo_nav.png' || 'http://185.35.138.140/images/iep-logo.png'},
+    {'label': 'Blockexplorer', 'ip': window.getEnvConfig("TESTNET_ENDPOINTS_BLOCK") || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_BLOCK") + '/block/images/logo_nav.png' || 'http://185.35.138.140/block/images/logo_nav.png'}
 ]);
 
 angular.module('peer').constant('apiEndpoints', [
