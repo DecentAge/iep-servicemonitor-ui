@@ -35,6 +35,8 @@ var getHostByURL = function(url) {
 
 angular.module('peer').constant('peerEndpoints', [
     {'label': 'Peer #1', 'ip': getHostByURL(window.getEnvConfig("PEER_ENDPOINTS_1")) || '35.204.224.241', 'url': window.getEnvConfig("PEER_ENDPOINTS_1") || 'http://35.204.224.241:8888/api/nodes'},
+    {'label': 'Peer #2', 'ip': getHostByURL(window.getEnvConfig("PEER_ENDPOINTS_2")) || '35.204.224.241', 'url': window.getEnvConfig("PEER_ENDPOINTS_2") || 'http://35.204.224.241:8888/api/nodes'},
+    {'label': 'Peer #3', 'ip': getHostByURL(window.getEnvConfig("PEER_ENDPOINTS_3")) || '35.204.224.241', 'url': window.getEnvConfig("PEER_ENDPOINTS_3") || 'http://35.204.224.241:8888/api/nodes'},
     // {'label': 'Peer #1', 'ip': '185.35.137.7'  , 'url': 'http://185.35.137.7:8888/api/nodes'},
     // {'label': 'Peer #2', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217:8888/api/nodes'},
     // {'label': 'Peer #3', 'ip': '185.35.139.101', 'url': 'http://185.35.139.101:8888/api/nodes'},
