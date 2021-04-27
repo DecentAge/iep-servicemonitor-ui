@@ -51,13 +51,15 @@ angular.module('peer').constant('macapEndpoints', [
     {'label': 'MaCap', 'ip': getHostByURL(window.getEnvConfig("MACAP_ENDPOINT")) || '185.103.75.217', 'url': window.getEnvConfig("MACAP_ENDPOINT") || 'http://185.103.75.217:8892/api/v1/get'}
 ]);
 
-angular.module('peer').constant('websiteEndpoints', [
+angular.module('peer').constant('appEndpoints', [
     // {'label': 'Peerexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/peer/images/logo_nav.png'},
-    {'label': 'Peerexplorer', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_PEER")) || '35.204.224.241', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_PEER") || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
+    {'label': 'Peerexplorer', 'ip': getHostByURL(window.getEnvConfig("APP_ENDPOINTS_PEER")) || '35.204.224.241', 'url': window.getEnvConfig("APP_ENDPOINTS_PEER") || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
     // {'label': 'Blockexplorer', 'ip': '185.103.75.217', 'url': 'http://185.103.75.217/block/images/logo_nav.png'},
-    {'label': 'Blockexplorer', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_BLOCK")) || '35.204.224.241', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_BLOCK") || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
+    {'label': 'Blockexplorer', 'ip': getHostByURL(window.getEnvConfig("APP_ENDPOINTS_BLOCK")) || '35.204.224.241', 'url': window.getEnvConfig("APP_ENDPOINTS_BLOCK") || 'http://35.204.224.241/peerexplorer/images/logo_nav.png'},
     // {'label': 'Online Wallet #1', 'ip': '46.244.20.41', 'url': 'http://46.244.20.41/wallet/images/logo.png'},
-    {'label': 'Online Wallet #1', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_WALLET")) || '35.242.201.209', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_WALLET") || 'http://35.242.201.209/assets/images/logo.png'},
+    {'label': 'Online Wallet #1', 'ip': getHostByURL(window.getEnvConfig("APP_ENDPOINTS_WALLET_1")) || '35.242.201.209', 'url': window.getEnvConfig("APP_ENDPOINTS_WALLET_1") || 'http://35.242.201.209/assets/images/logo.png'},
+    {'label': 'Online Wallet #2', 'ip': getHostByURL(window.getEnvConfig("APP_ENDPOINTS_WALLET_2")) || '35.242.201.209', 'url': window.getEnvConfig("APP_ENDPOINTS_WALLET_2") || 'http://35.242.201.209/assets/images/logo.png'},
+    {'label': 'Online Wallet #3', 'ip': getHostByURL(window.getEnvConfig("APP_ENDPOINTS_WALLET_3")) || '35.242.201.209', 'url': window.getEnvConfig("APP_ENDPOINTS_WALLET_3") || 'http://35.242.201.209/assets/images/logo.png'},
     // {'label': 'Online Wallet #1', 'ip': '185.35.137.7', 'url': 'http://185.35.137.7/wallet/images/logo.png'},
 //    {'label': 'Online Wallet #1', 'ip': '208.95.1.177', 'url': 'http://208.95.1.177/wallet/images/logo.png'}
 ]);
@@ -71,6 +73,11 @@ angular.module('peer').constant('testnetEndpoints', [
 angular.module('peer').constant('apiEndpoints', [
   {'label': 'API Node', 'ip': getHostByURL(window.getEnvConfig("API_ENDPOINTS_NODE")) || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_NODE") || 'http://199.127.137.169:9005/docs/images/favicon-16x16.png'},
   {'label': 'API Backends', 'ip': getHostByURL(window.getEnvConfig("API_ENDPOINTS_BACKEND")) || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_BACKEND") || 'http://199.127.137.169:9006/docs/images/favicon-16x16.png'}
+]);
+
+angular.module('peer').constant('websiteEndpoints', [
+  {'label': 'Website', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_WEBSITE")) || '199.127.137.169', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_WEBSITE") || 'http://199.127.137.169:9005/docs/images/favicon-16x16.png'},
+  {'label': 'Wiki', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_WIKI")) || '199.127.137.169', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_WIKI") || 'http://199.127.137.169:9006/docs/images/favicon-16x16.png'}
 ]);
 
 angular.module('peer').constant('peerConfig', {
