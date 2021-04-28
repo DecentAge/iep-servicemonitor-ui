@@ -6,5 +6,5 @@ test:
   needs:
     - project: infinity-economics/iep-infrastructure
       job: build_vars
-      ref: master
+      ref: develop
       artifacts: true
