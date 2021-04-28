@@ -1,0 +1,9 @@
+test:
+  stage: test
+  script:
+    - echo $BUILD_VERSION
+  needs:
+    - project: infinity-economics/iep-infrastructure
+      job: build_vars
+      ref: master
+      artifacts: true
