@@ -2,6 +2,7 @@ test:
   stage: test
   script:
     - echo $BUILD_VERSION
+    - ls -alt
   needs:
     - project: infinity-economics/iep-infrastructure
       job: build_vars
