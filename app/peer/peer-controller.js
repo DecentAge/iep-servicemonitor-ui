@@ -15,14 +15,15 @@
  ******************************************************************************/
 
 angular.module('peer').controller('PeerStatusCtrl',
-    ['$scope', 'PeerService', 'peerEndpoints', 'macapEndpoints','websiteEndpoints', 'testnetEndpoints', 'apiEndpoints' , 'isOnlineFilter', '$sce',
-        function ($scope, PeerService, peerEndpoints, macapEndpoints,websiteEndpoints, testnetEndpoints, apiEndpoints, isOnlineFilter, $sce) {
+    ['$scope', 'PeerService', 'peerEndpoints', 'macapEndpoints', 'appEndpoints', 'testnetEndpoints', 'apiEndpoints', 'websiteEndpoints', 'isOnlineFilter', '$sce',
+        function ($scope, PeerService, peerEndpoints, macapEndpoints, appEndpoints, testnetEndpoints, apiEndpoints, websiteEndpoints, isOnlineFilter, $sce) {
 
             $scope.peerEndpoints = peerEndpoints;
             $scope.macapEndpoints = macapEndpoints;
-            $scope.websiteEndpoints = websiteEndpoints;
+            $scope.appEndpoints = appEndpoints;
             $scope.testnetEndpoints = testnetEndpoints;
             $scope.apiEndpoints = apiEndpoints;
+            $scope.websiteEndpoints = websiteEndpoints;
 
             $scope.trustAsHtml = $sce.trustAsHtml;
 

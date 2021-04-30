@@ -63,14 +63,14 @@
 
 	</div>
 
-	<div class="row" ng-init="getAllIpStatus(websiteEndpoints,true)">
+	<div class="row" ng-init="getAllIpStatus(appEndpoints,true)">
 		<div class="col-md-12  col-centered">
 
 			<uib-accordion close-others="false" class="text-left" style="width:768px;">
 				<div uib-accordion-group class="active-node-header panel-default" ng-init="status = {open: true}" is-open="status.open" >
 
 					<uib-accordion-heading>
-						Websites Service Status
+						App Status
 						<span class="pull-right" ng-class="{'icon-minus-button': status.open, 'icon-plus-button': !status.open}"></span>
 					</uib-accordion-heading>
 
@@ -86,7 +86,7 @@
 							</tr>
 							</thead>
 							<tbody>
-							<tr ng-repeat="peer in websiteEndpoints">
+							<tr ng-repeat="peer in appEndpoints">
 
 								<td><strong>{{peer.label}} </strong></td>
 								<td> {{ peer.ip }}</td>
@@ -106,7 +106,7 @@
 		</div>
 
 	</div>
-
+<!--
 	<div class="row" ng-init="getAllIpStatus(testnetEndpoints,true)">
 		<div class="col-md-12  col-centered">
 
@@ -150,7 +150,7 @@
 		</div>
 
 	</div>
-
+-->
 	<div class="row" ng-init="getAllIpStatus(apiEndpoints,true)">
 		<div class="col-md-12  col-centered">
 
@@ -175,6 +175,50 @@
 							</thead>
 							<tbody>
 							<tr ng-repeat="peer in apiEndpoints">
+
+								<td><strong>{{peer.label}} </strong></td>
+								<td> {{ peer.ip }}</td>
+								<td>{{ IP_STATUS[peer.url]['timestamp'] }}</td>
+
+								<td><p ng-bind-html="trustAsHtml( IP_STATUS[peer.url]['status'] )"></p></td>
+
+								<td>
+									<button class="btn btn-check  btn-xs" ng-click="getStatus(peer, true)">Check</button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</uib-accordion>
+		</div>
+
+	</div>
+	
+	<div class="row" ng-init="getAllIpStatus(websiteEndpoints,true)">
+		<div class="col-md-12  col-centered">
+
+			<uib-accordion close-others="false" class="text-left" style="width:768px;">
+				<div uib-accordion-group class="active-node-header panel-default" ng-init="status = {open: true}" is-open="status.open">
+
+					<uib-accordion-heading>
+						Website Status
+						<span class="pull-right" ng-class="{'icon-minus-button': status.open, 'icon-plus-button': !status.open}"></span>
+					</uib-accordion-heading>
+
+					<div class="table-responsive">
+						<table class="table dataTable table-striped table-bordered">
+							<thead>
+							<tr>
+								<th>Name</th>
+								<th>IP</th>
+								<th>Last check</th>
+								<th>Status</th>
+								<th>Check</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="peer in websiteEndpoints">
 
 								<td><strong>{{peer.label}} </strong></td>
 								<td> {{ peer.ip }}</td>
