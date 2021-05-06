@@ -7,18 +7,18 @@ window.envConfig = {
 	
 	MACAP_ENDPOINT: 'http://localhost/mcap-backend/api/v1/get',
 	
-	APP_ENDPOINTS_PEER: '',
-	APP_ENDPOINTS_BLOCK: '',
-	APP_ENDPOINTS_WALLET_1: '',
-	APP_ENDPOINTS_WALLET_2: '',
-	APP_ENDPOINTS_WALLET_3: '',
+	APP_ENDPOINTS_PEER: 'http://localhost/peerexplorer/images/iep-logo.png',
+	APP_ENDPOINTS_BLOCK: 'http://localhost/blockexplorer/images/iep-logo.png',
+	APP_ENDPOINTS_WALLET_1: 'http://localhost/wallet/assets/images/logo.png',
+	APP_ENDPOINTS_WALLET_2: 'http://localhost/wallet/assets/images/logo.png',
+	APP_ENDPOINTS_WALLET_3: 'http://localhost/wallet/assets/images/logo.png',
 	
 	TESTNET_ENDPOINTS_PEER: 'http://localhost/peerexplorer/images/logo_nav.png',
 	TESTNET_ENDPOINTS_BLOCK: 'http://localhost/blockexplorer/images/iep-logo.png',
 	TESTNET_ENDPOINTS_WALLET: 'http://localhost/wallet/assets/images/logo.png',
 	
-	WEBSITE_ENDPOINTS_WEBSITE: '',
-	WEBSITE_ENDPOINTS_WIKI: '',
+	WEBSITE_ENDPOINTS_WEBSITE: 'http://localhost/backend-api/docs/images/favicon-16x16.png',
+	WEBSITE_ENDPOINTS_WIKI: 'http://localhost/backend-api/docs/images/favicon-16x16.png',
 	
 	API_ENDPOINTS_NODE: 'http://localhost/node-api/docs/images/favicon-16x16.png',
 	API_ENDPOINTS_BACKEND: 'http://localhost/backend-api/docs/images/favicon-16x16.png',
