@@ -19,6 +19,7 @@ angular.module('baseClient', ['restangular', 'ui.router', 'ui.bootstrap','datata
 
 angular.module('baseClient').constant('baseConfig', {
     'AUTO_PAGE_REFRESH_INTERVAL': window.getEnvConfig('AUTO_PAGE_REFRESH_INTERVAL') || '300000',
+    'RELEASE_VERSION': window.getEnvConfig('RELEASE_VERSION')
 });
 
 angular.module('baseClient').filter('isOnline', ['$sce', function ($sce) {
