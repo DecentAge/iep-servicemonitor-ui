@@ -12,7 +12,7 @@ COPY /app /app/app
 RUN npm run-script update-version --release_version=$(cat release-version.txt) 
 RUN npm run build
 RUN mkdir -p /app/build
-RUN zip -r /app/build/iep-peerexplorer-ui.zip ./dist
+RUN zip -r /app/build/iep-servicemonitor-ui.zip ./dist
 
 # production environment
 FROM nginx:1.18
