@@ -82,3 +82,33 @@ table.dataTable thead th {
         width: auto;
     }
 }
+
+.search-and-type .btn-infinity {
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 13px;
+    min-height: 34px
+}
+
+.search-and-type .btn-infinity:hover {
+    background: #2b2b2b
+}
+
+.search-and-type .btn-infinity.btn-infinity-enabled {
+    background: #e72d45
+}
+
+.search-and-type span {
+    display: inline-block;
+    padding: 7px 20px;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50px!important;
+    text-align: center;
+    border: 2px solid #7f0000;
+    border: 2px solid rgba(255,255,255,.5);
+    background-clip: padding-box;
+    cursor: pointer;
+    color: #fff
+}

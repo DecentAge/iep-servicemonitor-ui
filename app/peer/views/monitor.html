@@ -13,6 +13,15 @@
             		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12 text-center">
             			<h2 class="head-title">SERVICE MONITOR</h2>
             		</div>
+
+					<div class="search-and-type col-md-4 col-sm-4 col-lg-4 col-xs-12">
+					<span ng-if="MONITOR_OPTIONS.NETWORK_ENVIRONMENT === 'mainnet'" class="btn btn-infinity btn-md navbar-btn pull-right" type="label" style="margin-right:0px;" popover-placement="bottom" popover-trigger="'mouseenter'" uib-popover="Connected to MAINNET">
+								Mainnet
+							</span>
+					<span ng-if="MONITOR_OPTIONS.NETWORK_ENVIRONMENT === 'testnet'" class="btn btn-infinity btn-md navbar-btn pull-right" type="label" style="margin-right:0px;" popover-placement="bottom" popover-trigger="'mouseenter'" uib-popover="Connected to TESTNET">
+								Testnet
+							</span>
+					</div>
         	    </div>
         	</div>  
         </div>
