@@ -1,4 +1,4 @@
-** Release 0.3.0 **
+# Release 0.3.1
 - added build and start script to npm script section
 - Added git ignore file to exclude files from beeing commited
 - Add missing jshintrc and prevent auto browser opening in docker container
