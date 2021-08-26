@@ -25,6 +25,8 @@ angular.module('monitoring')
         });
 
         $urlRouterProvider.otherwise('/monitor');
+
+        document.title = "Infinity Service Monitor | " + window.getEnvConfig("NETWORK_ENVIRONMENT");
     }]);
 
 angular.module('monitoring').run(['baseConfig', '$rootScope', function (baseConfig, $rootScope) {
