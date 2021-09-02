@@ -18,6 +18,10 @@ This application is used to monitor all applications in the Infinity Economics e
 - Manual check function for Website and Wiki
 
 ## Getting Started
+### Configuration
+
+You can configure several values for the app. The config file is located in `/app/env.config.js`.
+
 ### Prerequisites
 
 You need to have following tools installed:
