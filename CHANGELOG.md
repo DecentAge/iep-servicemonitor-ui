@@ -1,3 +1,6 @@
+# Release 0.3.2
+- added network to website title (mainnet/testnet)
+
 # Release 0.3.1
 - added build and start script to npm script section
 - Added git ignore file to exclude files from beeing commited
