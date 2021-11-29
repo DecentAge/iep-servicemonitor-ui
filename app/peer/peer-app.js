@@ -65,7 +65,7 @@ angular.module('peer').constant('appEndpoints', [
     // {'label': 'Online Wallet #1', 'ip': '185.35.137.7', 'url': 'http://185.35.137.7/wallet/images/logo.png'},
 //    {'label': 'Online Wallet #1', 'ip': '208.95.1.177', 'url': 'http://208.95.1.177/wallet/images/logo.png'}
 ]);
-
+/*
 angular.module('peer').constant('testnetEndpoints', [
     {'label': 'Online Wallet', 'ip': getHostByURL(window.getEnvConfig("TESTNET_ENDPOINTS_WALLET")) || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_WALLET") || 'http://185.35.138.140/wallet/images/logo.png'},
     {'label': 'Peerexplorer', 'ip': getHostByURL(window.getEnvConfig("TESTNET_ENDPOINTS_PEER")) || '185.35.138.140', 'url': window.getEnvConfig("TESTNET_ENDPOINTS_PEER") || 'http://185.35.138.140/images/iep-logo.png'},
@@ -76,10 +76,10 @@ angular.module('peer').constant('apiEndpoints', [
   {'label': 'API Node', 'ip': getHostByURL(window.getEnvConfig("API_ENDPOINTS_NODE")) || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_NODE") || 'http://199.127.137.169:9005/docs/images/favicon-16x16.png'},
   {'label': 'API Backends', 'ip': getHostByURL(window.getEnvConfig("API_ENDPOINTS_BACKEND")) || '199.127.137.169', 'url': window.getEnvConfig("API_ENDPOINTS_BACKEND") || 'http://199.127.137.169:9006/docs/images/favicon-16x16.png'}
 ]);
-
+*/
 angular.module('peer').constant('websiteEndpoints', [
-  {'label': 'Website', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_WEBSITE")) || '199.127.137.169', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_WEBSITE") || 'http://199.127.137.169:9005/docs/images/favicon-16x16.png'},
-  {'label': 'Wiki', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS_WIKI")) || '199.127.137.169', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS_WIKI") || 'http://199.127.137.169:9006/docs/images/favicon-16x16.png'}
+  {'label': 'Website', 'ip': getHostByURL(window.getEnvConfig("WEBSITE_ENDPOINTS")) || '199.127.137.169', 'url': window.getEnvConfig("WEBSITE_ENDPOINTS") || 'http://199.127.137.169:9005/docs/images/favicon-16x16.png'},
+  {'label': 'Wiki', 'ip': getHostByURL(window.getEnvConfig("WIKI_ENDPOINTS")) || '199.127.137.169', 'url': window.getEnvConfig("WIKI_ENDPOINTS") || 'http://199.127.137.169:9006/docs/images/favicon-16x16.png'}
 ]);
 
 angular.module('peer').constant('peerConfig', {

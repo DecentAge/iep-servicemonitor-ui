@@ -9,7 +9,7 @@ COPY ["package*.json", "gulpfile.js", ".jshintrc", "default.conf.template", "30-
 RUN npm install
 COPY ["bower.json", "./"]
 RUN npm run bower install
-COPY /app /app/app
+COPY . .
 RUN npm run-script update-version --release_version=$(cat release-version.txt) 
 RUN npm run build
 RUN mkdir -p /app/build
