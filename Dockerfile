@@ -8,7 +8,7 @@ RUN npm link gulp --force
 COPY ["package*.json", "gulpfile.js", ".jshintrc", "default.conf.template", "30-nginx-iep-startup-script.sh", "./"]
 RUN npm install
 COPY ["bower.json", "./"]
-RUN npm run bower install
+RUN npm run bower --allow-root install
 COPY . .
 RUN npm run-script update-version --release_version=$(cat release-version.txt) 
 RUN npm run build
