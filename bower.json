@@ -28,5 +28,8 @@
     "angular-sanitize": "^1.6.1",
     "angular-cc-autorefresh": "^0.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "1.8.2"
+  }
 }
