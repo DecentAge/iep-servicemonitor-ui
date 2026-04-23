@@ -3,6 +3,8 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+cd "$(dirname "$0")"
+
 RELEASE_VERSION=$(cat release-version.txt)
 docker build -t decentage/iep-servicemonitor-ui:${RELEASE_VERSION} .
 
