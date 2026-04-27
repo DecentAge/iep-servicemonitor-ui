@@ -290,3 +290,4 @@ dist
 /package-lock.json
 /.idea/
 /iep-servicemonitor-ui.iml
+/.angular/

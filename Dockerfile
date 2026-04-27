@@ -1,28 +1,26 @@
-# build environment
-FROM node:12-alpine AS builder
+# Stage 1: Build the Angular application
+FROM node:22-alpine AS build
 WORKDIR /app
-RUN apk add --no-cache git
-RUN apk add --no-cache zip
-RUN npm install -g gulp@4.0.2
-RUN npm link gulp --force
-COPY ["package*.json", "gulpfile.js", ".jshintrc", "default.conf.template", "30-nginx-iep-startup-script.sh", "./"]
-RUN npm install
-COPY ["bower.json", "./"]
-RUN npm run bower install
-COPY . .
-RUN npm run-script update-version --release_version=$(cat release-version.txt) 
-RUN npm run build
-RUN mkdir -p /app/build
-RUN zip -r /app/build/iep-servicemonitor-ui.zip ./dist
 
-# production environment
-FROM nginx:1.20-alpine
-ENV NGINX_PATH=/
-COPY --from=builder /app/dist /usr/share/nginx/html/
-COPY --from=builder /app/build /build
-COPY --from=builder /app/default.conf.template /etc/nginx/templates/default.conf.template
-COPY --from=builder /app/app/env.config.js.template /etc/nginx/templates/env.config.js.template
-COPY --from=builder /app/30-nginx-iep-startup-script.sh /docker-entrypoint.d/30-nginx-iep-startup-script.sh
+COPY package*.json ./
+RUN apk add --no-cache zip && npm i
+
+COPY . .
+RUN npm run-script update-version --release_version=$(cat release-version.txt)
+RUN npm run build
+
+RUN mkdir -p /build \
+    && cd /app/dist/iep-servicemonitor-ui \
+    && zip -r /build/iep-servicemonitor-ui.zip .
+
+# Stage 2: Serve the application with Nginx
+FROM nginx:alpine AS deploy
+
+COPY --from=build /app/dist/iep-servicemonitor-ui /usr/share/nginx/html
+COPY --from=build /build/iep-servicemonitor-ui.zip /build/iep-servicemonitor-ui.zip
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY env.config.js.template /etc/nginx/templates/env.config.js.template
+COPY 30-nginx-iep-startup-script.sh /docker-entrypoint.d/30-nginx-iep-startup-script.sh
 RUN chmod 775 /docker-entrypoint.d/30-nginx-iep-startup-script.sh
 
 EXPOSE 80
