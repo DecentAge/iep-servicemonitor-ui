@@ -1,0 +1,37 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', 'Titillium Web', system-ui, -apple-system, sans-serif;
+  background: #fff;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.head-title {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.btn-infinity {
+  background-color: #ea555d;
+  border-color: #ea555d;
+  color: #fff;
+  &:hover, &:focus {
+    background-color: darken(#ea555d, 8%);
+    border-color: darken(#ea555d, 8%);
+    color: #fff;
+  }
+}
+
+.active-node-header {
+  margin-top: 1.25rem;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  color: #555;
+}

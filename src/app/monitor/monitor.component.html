@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand bg-light fixed-top shadow-sm">
+  <div class="container-fluid d-flex align-items-center">
+    <a href="/" class="navbar-brand p-0">
+      <img src="assets/images/iep-logo.png" alt="IEP" style="height:40px;" />
+    </a>
+    <h2 class="head-title mx-auto m-0">SERVICE MONITOR</h2>
+    <span
+      class="btn btn-infinity btn-sm"
+      [ngbTooltip]="'Connected to ' + networkEnvironment.toUpperCase()"
+      placement="bottom"
+    >
+      {{ networkEnvironment | titlecase }}
+    </span>
+  </div>
+</nav>
+
+<div class="container py-5 mt-5">
+  <div ngbAccordion [closeOthers]="false">
+    <div ngbAccordionItem [collapsed]="false">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Peer Service Status</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <ng-container *ngTemplateOutlet="statusTable; context: { rows: peers }"></ng-container>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div ngbAccordionItem [collapsed]="false">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>App Status</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <ng-container *ngTemplateOutlet="statusTable; context: { rows: apps }"></ng-container>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div ngbAccordionItem [collapsed]="false">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Website Status</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <ng-container *ngTemplateOutlet="statusTable; context: { rows: websites }"></ng-container>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer mt-5">
+    <small>
+      This website is owned by the <span style="color:#ea555d;">Infinity community</span>
+      and managed by the <span style="color:#ea555d;">Infinity Foundation.</span>
+      Version: {{ releaseVersion }}
+    </small>
+  </div>
+</div>
+
+<ng-template #statusTable let-rows="rows">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>IP</th>
+          <th>Last check</th>
+          <th>Status</th>
+          <th>Check</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td><strong>{{ row.label }}</strong></td>
+          <td>{{ row.ip }}</td>
+          <td>{{ statusOf(row)?.timestamp }}</td>
+          <td>
+            <ng-container *ngIf="statusOf(row) as s; else unknown">
+              <i *ngIf="s.online" class="bi bi-check-circle-fill text-success" aria-label="Online"></i>
+              <span *ngIf="!s.online" class="badge bg-warning text-dark">OFFLINE</span>
+            </ng-container>
+            <ng-template #unknown>
+              <span class="badge bg-secondary">…</span>
+            </ng-template>
+          </td>
+          <td>
+            <button class="btn btn-infinity btn-sm" (click)="check(row)">Check</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
