@@ -1,3 +1,17 @@
 :host {
   display: block;
 }
+
+/* Navbar fixed-top (Bootstrap 3 class name) */
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+/* pull-right helper (Bootstrap 3) */
+.pull-right {
+  float: right !important;
+}
