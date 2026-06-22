@@ -287,7 +287,6 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node,eclipse,intellij
 /.project
-/package-lock.json
 /.idea/
 /iep-servicemonitor-ui.iml
 /.angular/
