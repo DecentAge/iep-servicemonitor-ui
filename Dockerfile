@@ -3,7 +3,7 @@ FROM node:22-alpine AS build
 WORKDIR /app
 
 COPY package*.json ./
-RUN apk add --no-cache zip && npm i
+RUN apk add --no-cache zip && npm ci
 
 COPY . .
 RUN npm run-script update-version --release_version=$(cat release-version.txt)
