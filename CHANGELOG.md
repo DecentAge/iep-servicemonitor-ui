@@ -1,3 +1,13 @@
+# Changelog
+
+## [Unreleased]
+
+## [0.4.1] - 2026-06-24
+### Changed
+- Re-initialized as a modern Angular 20 project (Node 22, npm ci); layout/responsiveness refinements.
+
+## [0.3.x and earlier]
+
 # Release 0.3.3
 
 # Release 0.3.2
