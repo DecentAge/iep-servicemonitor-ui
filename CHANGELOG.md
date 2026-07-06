@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [0.4.1] - 2026-06-24
+## [0.4.1] - 2026-07-06
 ### Changed
 - Re-initialized as a modern Angular 20 project (Node 22, npm ci); layout/responsiveness refinements.
 
