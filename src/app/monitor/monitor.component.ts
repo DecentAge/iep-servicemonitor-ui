@@ -53,40 +53,31 @@ export class MonitorComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit(): Promise<void> {
-    await this.refreshPeers();
-    this.checkAll();
+    await this.checkAll();
     const intervalMs = Number(this.env.get('AUTO_PAGE_REFRESH_INTERVAL')) || 300_000;
-    this.refreshTimer = setInterval(() => {
-      this.refreshPeers().then(() => this.checkAll());
-    }, intervalMs);
+    this.refreshTimer = setInterval(() => this.checkAll(), intervalMs);
   }
 
+  // Node liveness comes from the peerexplorer backend crawl (`active`); the raw
+  // node ports aren't reachable from the browser (mixed content / no TLS).
   async refreshPeers(): Promise<void> {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
     const peerUrl = this.env.get('PEER_ENDPOINTS_1') || `${origin}/peerexplorer-backend/api/nodes`;
     const nodes = await this.monitor.fetchNodes(peerUrl);
     if (Array.isArray(nodes) && nodes.length > 0) {
+      const now = new Date().toString();
+      const status = { ...this.status };
       this.peers = nodes.map((node: any, index: number) => {
-        // Use announcedAddress if available, fallback to _id or ip
         let host = node.announcedAddress || node._id || node.ip || 'unknown';
-        // Strip existing port if present to ensure we use the consistent port
         if (host.includes(':')) {
           host = host.split(':')[0];
         }
-        // Force the same port for all nodes as requested by the user
-        const port = 9875;
-        const url = `http://${host}:${port}`;
-        
-        // Use the host as label if it's not "unknown", otherwise fallback to index
+        const url = `http://${host}`;
         const label = host !== 'unknown' ? host : `Peer #${index + 1}`;
-
-        return {
-          label: label,
-          ip: url,
-          url: url,
-          asImage: false
-        };
+        status[url] = { online: node.active === true, timestamp: now };
+        return { label, ip: host, url, asImage: false, isPeer: true };
       });
+      this.status = status;
       this.cdr.detectChanges();
     }
   }
@@ -95,19 +86,24 @@ export class MonitorComponent implements OnInit, OnDestroy {
     if (this.refreshTimer) clearInterval(this.refreshTimer);
   }
 
-  checkAll(): void {
-    [...this.peers, ...this.apps, ...this.websites].forEach((ep) => this.check(ep));
+  async checkAll(): Promise<void> {
+    await this.refreshPeers();
+    [...this.apps, ...this.websites].forEach((ep) => this.check(ep));
   }
 
   async check(endpoint: MonitorEndpoint): Promise<void> {
     this.checking[endpoint.url] = true;
     this.cdr.detectChanges();
     try {
-      const online = await this.monitor.probe(endpoint);
-      this.status = {
-        ...this.status,
-        [endpoint.url]: { online, timestamp: new Date().toString() }
-      };
+      if (endpoint.isPeer) {
+        await this.refreshPeers();
+      } else {
+        const online = await this.monitor.probe(endpoint);
+        this.status = {
+          ...this.status,
+          [endpoint.url]: { online, timestamp: new Date().toString() }
+        };
+      }
     } catch (e) {
       console.error('Check failed', e);
     } finally {

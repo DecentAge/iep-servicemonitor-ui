@@ -3,6 +3,7 @@ export interface MonitorEndpoint {
   ip: string;
   url: string;
   asImage: boolean;
+  isPeer?: boolean;
 }
 
 export function buildEndpoints(env: (key: string) => string | null): {
