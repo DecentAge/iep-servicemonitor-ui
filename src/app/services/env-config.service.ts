@@ -11,13 +11,13 @@ declare global {
 export class EnvConfigService {
   get(key: string): string | null {
     if (typeof window === 'undefined') return null;
-    if (typeof window.getEnvConfig === 'function') {
-      const v = window.getEnvConfig(key);
-      if (v && v.startsWith('${')) return null;
-      return v;
-    }
-    const v = window.envConfig?.[key];
-    if (v && (v.length === 0 || v.startsWith('${'))) return null;
-    return v || null;
+    const raw =
+      typeof window.getEnvConfig === 'function'
+        ? window.getEnvConfig(key)
+        : window.envConfig?.[key];
+    if (raw === null || raw === undefined) return null;
+    const v = String(raw);
+    if (v.length === 0 || v.startsWith('${')) return null;
+    return v;
   }
 }
