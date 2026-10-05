@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-10-05
+### Changed
+- Build and publish Docker images from the `iep-release` pipeline instead of `iep-docker`.
+
 ## [0.4.1] - 2026-07-06
 ### Changed
 - Re-initialized as a modern Angular 20 project (Node 22, npm ci); layout/responsiveness refinements.
