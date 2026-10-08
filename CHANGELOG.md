@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.4.3] - 2026-10-08
+### Changed
+- Maintenance and internal updates.
+
 ## [0.4.2] - 2026-10-05
 ### Changed
 - Build and publish Docker images from the `iep-release` pipeline instead of `iep-docker`.
