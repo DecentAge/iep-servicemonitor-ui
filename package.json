@@ -1,6 +1,6 @@
 {
   "name": "iep-servicemonitor-ui",
-  "version": "0.4.3-rc",
+  "version": "0.4.3",
   "description": "Infinity Service Monitor",
   "scripts": {
     "prestart": "npm install",
