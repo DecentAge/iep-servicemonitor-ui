@@ -24,14 +24,17 @@ export class MonitorService {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000);
       
-      await fetch(endpoint.url, { 
-        mode: 'no-cors', 
+      // no-cors responses are opaque (an HTTP 404/502 still resolves), so only
+      // same-origin endpoints can be checked for a real HTTP status
+      const sameOrigin = new URL(endpoint.url, window.location.href).origin === window.location.origin;
+      const res = await fetch(endpoint.url, {
+        mode: sameOrigin ? 'same-origin' : 'no-cors',
         cache: 'no-cache',
         signal: controller.signal
       });
-      
+
       clearTimeout(timeoutId);
-      return true;
+      return sameOrigin ? res.ok : true;
     } catch (e) {
       return false;
     }

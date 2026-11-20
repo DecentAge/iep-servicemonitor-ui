@@ -6,6 +6,8 @@ export interface MonitorEndpoint {
   isPeer?: boolean;
 }
 
+const isImage = (url: string) => /\.(png|jpe?g|gif|svg|ico|webp)(\?.*)?$/i.test(url);
+
 export function buildEndpoints(env: (key: string) => string | null): {
   peers: MonitorEndpoint[];
   apps: MonitorEndpoint[];
@@ -20,22 +22,22 @@ export function buildEndpoints(env: (key: string) => string | null): {
   const apps: MonitorEndpoint[] = [];
   
   const appPeer = env('APP_ENDPOINTS_PEER') || `${origin}/peerexplorer`;
-  apps.push({ label: 'Peerexplorer', ip: appPeer, url: appPeer, asImage: false });
+  apps.push({ label: 'Peerexplorer', ip: appPeer, url: appPeer, asImage: isImage(appPeer) });
 
   const appBlock = env('APP_ENDPOINTS_BLOCK') || `${origin}/blockexplorer`;
-  apps.push({ label: 'Blockexplorer', ip: appBlock, url: appBlock, asImage: false });
+  apps.push({ label: 'Blockexplorer', ip: appBlock, url: appBlock, asImage: isImage(appBlock) });
 
   const wallet1 = env('APP_ENDPOINTS_WALLET_1') || `${origin}/wallet`;
-  apps.push({ label: 'Online Wallet #1', ip: wallet1, url: wallet1, asImage: false });
+  apps.push({ label: 'Online Wallet #1', ip: wallet1, url: wallet1, asImage: isImage(wallet1) });
 
   const wallet2 = env('APP_ENDPOINTS_WALLET_2');
   if (wallet2) {
-    apps.push({ label: 'Online Wallet #2', ip: wallet2, url: wallet2, asImage: false });
+    apps.push({ label: 'Online Wallet #2', ip: wallet2, url: wallet2, asImage: isImage(wallet2) });
   }
 
   const wallet3 = env('APP_ENDPOINTS_WALLET_3');
   if (wallet3) {
-    apps.push({ label: 'Online Wallet #3', ip: wallet3, url: wallet3, asImage: false });
+    apps.push({ label: 'Online Wallet #3', ip: wallet3, url: wallet3, asImage: isImage(wallet3) });
   }
 
   const website = env('WEBSITE_ENDPOINTS') || 'https://infinity-economics.io';

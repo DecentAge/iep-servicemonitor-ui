@@ -43,12 +43,13 @@ export class MonitorComponent implements OnInit, OnDestroy {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
     const mainnet = this.env.get('MAINNET_LINK') || 'https://apps.infinity-economics.io/servicemonitor';
     const testnet = this.env.get('TESTNET_LINK') || 'https://testnet.infinity-economics.io/servicemonitor';
-    const devnet = this.env.get('DEVNET_LINK') || `${origin}/servicemonitor`;
+    const devnet = this.env.get('DEVNET_LINK')
+      || (this.networkEnvironment === 'devnet' ? `${origin}/servicemonitor` : null);
 
     this.envLinks = [
       { label: 'Mainnet', url: mainnet },
       { label: 'Testnet', url: testnet },
-      { label: 'Devnet', url: devnet }
+      ...(devnet ? [{ label: 'Devnet', url: devnet }] : [])
     ];
   }
 
