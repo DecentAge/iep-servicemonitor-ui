@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular application
-FROM node:22-alpine AS build
+FROM node:22.23.5-alpine3.24 AS build
 WORKDIR /app
 
 COPY package*.json ./
@@ -14,11 +14,12 @@ RUN mkdir -p /build \
     && zip -r /build/iep-servicemonitor-ui.zip .
 
 # Stage 2: Serve the application with Nginx
-FROM nginx:alpine AS deploy
+FROM nginx:1.30.7-alpine3.24 AS deploy
 
 COPY --from=build /app/dist/iep-servicemonitor-ui /usr/share/nginx/html
 COPY --from=build /build/iep-servicemonitor-ui.zip /build/iep-servicemonitor-ui.zip
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY security-headers.conf /etc/nginx/snippets/security-headers.conf
 COPY env.config.js.template /etc/nginx/templates/env.config.js.template
 COPY 30-nginx-iep-startup-script.sh /docker-entrypoint.d/30-nginx-iep-startup-script.sh
 RUN chmod 775 /docker-entrypoint.d/30-nginx-iep-startup-script.sh

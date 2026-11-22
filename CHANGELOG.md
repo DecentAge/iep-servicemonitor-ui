@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.4.5] - 2026-11-22
+### Added
+- Add a statistics counting script and a Content-Security-Policy header.
+
+### Fixed
+- Show the Devnet link only when configured or running on devnet.
+- Detect HTTP errors in health probes and handle SPA deep links in nginx.
+
 ## [0.4.4] - 2026-10-12
 ### Changed
 - Maintenance and internal updates.
